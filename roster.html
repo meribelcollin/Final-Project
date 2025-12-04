@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    // invoked function to set theme based on localstorage
+    (function(){
+      try {
+        var saved = null;
+        try { saved = localStorage.getItem('siteTheme'); } catch(e) { saved = null; }
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {
+        try { document.documentElement.setAttribute('data-theme', 'dark'); } catch(e){}
+      }
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vermont Ruckus Roster</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+  <section class="header hero" aria-hidden="true">
+    <h1>Vermont Ruckus</h1>
+  </section>
+
+  <!-- website header/navbar-->
+  <header class="site-header" role="banner">
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="roster.html" aria-current="page">Roster</a></li>
+        <li><a class="nav-link" href="coaches.html">Coaches</a></li>
+        <li><a class="nav-link" href="tournaments.html">Tournament Schedule</a></li>
+        <li><a class="nav-link" href="form.html">Interest Form</a></li>
+      </ul>
+    </nav>
+    <!-- theme toggle -->
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle light and dark theme">
+        <span id="themeIcon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <section aria-labelledby="roster-heading">
+      <h2 id="roster-heading">Vermont Ruckus 2025–2026 Roster</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <!-- table headers -->
+            <tr>
+              <th>Number</th>
+              <th>Name</th>
+              <th>Pronouns</th>
+              <th>Hometown</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- roster list in a table-->
+            <tr><td>1</td><td>Nev Parish</td><td>she/her</td><td>Shelburne, Vermont</td></tr>
+            <tr><td>2</td><td>Haley Hemeon</td><td>she/her</td><td>Cape Elizabeth, Maine</td></tr>
+            <tr><td>4</td><td>June Clark</td><td>she/her</td><td>Lyme, New Hampshire</td></tr>
+            <tr><td>5</td><td>Dylan Wilcox</td><td>she/her</td><td>Woodsville, New Hampshire</td></tr>
+            <tr><td>6</td><td>Caroline Stone</td><td>she/her</td><td>Austin, Texas</td></tr>
+            <tr><td>7</td><td>Sophie Smith</td><td>she/her</td><td>South Burlington, Vermont</td></tr>
+            <tr><td>8</td><td>Jodie Coughlin</td><td>she/her</td><td>Portland, Oregon</td></tr>
+            <tr><td>9</td><td>Ella Leding</td><td>she/her</td><td>North Yarmouth, Maine</td></tr>
+            <tr><td>10</td><td>Isabelle Alfano</td><td>she/her</td><td>East Greenwich, Rhode Island</td></tr>
+            <tr><td>11</td><td>Katie Stack</td><td>she/her</td><td>Swarthmore, Pennsylvania</td></tr>
+            <tr><td>13</td><td>Sumi Farrell</td><td>she/her</td><td>Durham, North Carolina</td></tr>
+            <tr><td>14</td><td>Tatum Cubrilovic</td><td>she/her</td><td>Chapel Hill, North Carolina</td></tr>
+            <tr><td>15</td><td>Layla Wissink</td><td>she/her</td><td>Falmouth, Maine</td></tr>
+            <tr><td>16</td><td>Meribel Collin</td><td>she/her</td><td>Portland, Maine</td></tr>
+            <tr><td>17</td><td>Willa Morales</td><td>she/her</td><td>South Portland, Maine</td></tr>
+            <tr><td>18</td><td>Ella Polli</td><td>she/her</td><td>Hinesburg, Vermont</td></tr>
+            <tr><td>19</td><td>Annie Pozzy</td><td>she/her</td><td>Portland, Maine</td></tr>
+            <tr><td>21</td><td>Ella Monaghan</td><td>she/her</td><td>Seattle, Washington</td></tr>
+            <tr><td>27</td><td>Scout Harper</td><td>she/her</td><td>Burlington, Vermont</td></tr>
+            <tr><td>30</td><td>Norah Curry</td><td>she/her</td><td>Alexandria, Virginia</td></tr>
+            <tr><td>38</td><td>Rita Narbonne</td><td>she/her</td><td>Acton, Massachusetts</td></tr>
+            <tr><td>47</td><td>Callen Lin-Butler</td><td>he/him</td><td>Lexington, Massachusetts</td></tr>
+            <tr><td>65</td><td>Grace Thompson</td><td>she/her</td><td>St. George, Vermont</td></tr>
+            <tr><td>80</td><td>Amy Felice</td><td>any/all</td><td>Calais, Vermont</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer with contact info -->
+  <footer class="footer" role="contentinfo">
+    <p><strong>Vermont Ruckus</strong> | University of Vermont</p>
+    <p>
+      Follow us on
+      <a href="https://www.instagram.com/uvm_ruckus" target="_blank" rel="noopener noreferrer">Instagram</a>
+      •
+      <a href="mailto:womensultimate@uvm.edu">Email Us</a>
+    </p>
+    <p>&copy; 2025 Vermont Ruckus</p>
+  </footer>
+
+  <!-- theme script -->
+  <script src="theme.js"></script>
+</body>
+</html>

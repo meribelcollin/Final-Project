@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+   // invoked function to set theme based on localstorage
+  (function(){
+    try {
+    var saved = null;
+    try { saved = localStorage.getItem('siteTheme'); } catch(e) { saved = null; }
+    if (saved === 'dark' || saved === 'light') {
+      document.documentElement.setAttribute('data-theme', saved);
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    } catch (e) {
+    try { document.documentElement.setAttribute('data-theme', 'dark'); } catch(e){}
+    }
+  })();
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vermont Ruckus</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+  <section class="header hero" aria-hidden="true">
+    <h1>Vermont Ruckus</h1>
+  </section>
+
+  <!-- website header/navbar-->
+  <header class="site-header" role="banner">
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.html" aria-current="page">Home</a></li>
+        <li><a class="nav-link" href="roster.html">Roster</a></li>
+        <li><a class="nav-link" href="coaches.html">Coaches</a></li>
+        <li><a class="nav-link" href="tournaments.html">Tournament Schedule</a></li>
+        <li><a class="nav-link" href="form.html">Interest Form</a></li>
+      </ul>
+    </nav>
+<!-- theme toggle -->
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle light and dark theme">
+        <span id="themeIcon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <div class="row">
+      <aside class="side" role="complementary" aria-labelledby="upcoming-heading">
+        <img src="images/logo.png" alt="Vermont Ruckus logo" width="338" height="338" />
+        <h3 id="upcoming-heading">Upcoming Events:</h3>
+        <ul>
+          <li>Lobster Pot - October 18–19</li>
+          <li>Middlebury Hat Tournament - October 25</li>
+          <li>Blue Ridge Invite - November 8–9</li>
+        </ul>
+      </aside>
+
+      <section class="main" role="article" aria-labelledby="who-heading">
+        <h1 id="who-heading">Who Are We?</h1>
+        <p class="lead">Vermont Ruckus is the Women's Ultimate A-Team at the University of Vermont. We go to tournaments across the country and have been in the semifinals at D-1 Nationals for the past three years.</p>
+
+        <figure class="photos">
+          <img src="images/sunhuddle.jpg" alt="Team huddle on the field" width="535" height="375" loading="lazy" />
+          <img src="images/tatum.jpg" alt="Player Tatum in action" width="535" height="375" loading="lazy" />
+        </figure>
+
+        <p>Our team is built on a foundation of love, trust, and shmeat. We love to allow ourselves and we hate Tufts. That pretty much sums it up. Watch our highlights below.</p>
+
+        <h1>Ruckus 2024–2025 Highlights</h1>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DLfa4rnhqKM/" data-instgrm-version="14" style="max-width:540px;">
+          <a href="https://www.instagram.com/reel/DLfa4rnhqKM/" target="_blank" rel="noopener noreferrer">A post shared by Vermont Women's Ultimate Frisbee (@uvm_ruckus)</a>
+        </blockquote>
+        <script async src="//www.instagram.com/embed.js"></script>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <p><strong>Vermont Ruckus</strong> | University of Vermont</p>
+    <p>
+      Follow us on
+      <a href="https://www.instagram.com/uvm_ruckus" target="_blank" rel="noopener noreferrer">Instagram</a>
+      •
+      <a href="mailto:womensultimate@uvm.edu">Email Us</a>
+    </p>
+    <p>&copy; 2025 Vermont Ruckus</p>
+  </footer>
+
+  <!-- theme script -->
+  <script src="theme.js"></script>
+</body>
+</html>

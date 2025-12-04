@@ -1,0 +1,408 @@
+/* theme variables and base */
+:root{
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #6b7280;
+  --accent: #0b6;
+  --card: #f7f7f8;
+  --header-bg: #ffffff;
+  --header-border: #e6e6e6;
+  --max-width: 1100px;
+  --gap: 1rem;
+  --radius: 8px;
+  --transition-fast: 180ms ease;
+  --container-padding: 1rem;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* dark theme stuff */
+[data-theme="dark"]{
+  --bg: #0b0f12;
+  --fg: #e6eef0;
+  --muted: #9aa6ad;
+  --accent: #6cf;
+  --card: #0f1416;
+  --header-bg: #071018;
+  --header-border: #122028;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.5;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+/* header */
+.header {
+  padding: 100px 200px;
+  font-size: 60px;
+  text-align: center;
+  -webkit-text-stroke: 4px rgb(2, 43, 4);
+  background-image: url('images/teampic.jpg');
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+
+/* other headings */
+h1, h2, h3, h4, h5 { margin: 0 0 0.5rem 0; }
+h2 { margin-left: 20px; font-size: 30px; }
+.lead { font-size: 1.05rem; color: var(--muted); margin-bottom: 1rem; }
+
+/* table css */
+table {
+  border-collapse: collapse;
+  width: 50%;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+}
+th { background-color: rgba(2, 43, 4, 0.575); }
+td { background-color: rgba(2, 43, 4, 0.247); }
+
+/* tournament list css */
+.tournaments {
+  background-color: white;
+  margin-bottom: 40px;
+}
+.tournaments ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 20px;
+}
+.tournaments li {
+  padding: 8px 12px;
+  background-color: rgba(2, 43, 4, 0.287);
+  margin-bottom: 6px;
+  margin-right: 20px;
+  border-radius: 4px;
+}
+.tournaments li:hover { background-color: rgba(2, 43, 4, 0.527); }
+
+/* navigation bar css */
+.navbar {
+  display: flex;
+  background-color: rgb(2, 43, 4);
+}
+.navbar a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+.navbar a:hover { background-color: #ddd; color: black; }
+
+/* coaches cards css */
+.coaches {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.coach-box {
+  border: 3px solid rgb(2, 43, 4);
+  border-radius: 10px;
+  padding: 20px;
+  width: 345px;
+  text-align: center;
+  background-color: rgba(216, 221, 164, 0.291);
+  margin-bottom: 20px;
+}
+.coach-box img {
+  width: 290px;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid rgb(2, 43, 4);
+}
+.coach-box h3 {
+  font-size: 24px;
+  color: rgb(2, 43, 4);
+  margin-bottom: 20px;
+}
+.coach-box p { font-size: 16px; color: #444; }
+
+/* layout css */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+.side {
+  flex: 0 0 320px;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 8px;
+}
+.side ul { list-style-type: none; padding: 0; margin: 0; }
+.side li {
+  background-color: rgba(7, 76, 51, 0.915);
+  color: white;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+}
+.main {
+  flex: 1 1 0;
+  background-color: white;
+  padding: 20px;
+  min-width: 0;
+}
+
+/* photo design */
+.photos {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.photos img { width: 100%; max-width: 48%; height: auto; border-radius: 6px; object-fit: cover; }
+
+/* footer */
+.footer {
+  padding: 10px;
+  text-align: center;
+  background: #0d581d5d;
+}
+
+/* form styling */
+section.form-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+label { font-weight: bold; margin-bottom: 0.3rem; }
+input, textarea {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 1rem;
+}
+button {
+  background: #00563f;
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+button:hover { background: #007a55; }
+.feedback { margin-top: 1rem; font-weight: bold; color: #00563f; }
+
+/* Header, nav, and theme toggle */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--header-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--fg);
+  font-size: 1.125rem;
+}
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+.nav-link {
+  text-decoration: none;
+  color: var(--fg);
+  padding: .45rem .6rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+.nav-link:hover, .nav-link:focus {
+  background: rgba(11,102,51,0.06);
+  color: var(--fg);
+}
+.header-actions { display: flex; align-items: center; gap: .5rem; }
+
+/* theme toggle button */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--header-border);
+  color: var(--fg);
+  padding: .35rem .6rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: 1rem;
+  transition: box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+.theme-toggle:hover { background: rgba(11,102,51,0.04); }
+.theme-toggle:active { transform: translateY(1px); }
+
+:focus { outline: none; }
+a:focus, button:focus, input:focus, textarea:focus {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px rgba(11,102,51,0.12);
+  border-radius: 6px;
+}
+
+/* responsive media */
+@media screen and (max-width: 900px) {
+  .row { flex-direction: column-reverse; }
+  .side { flex: 0 0 auto; width: 100%; }
+  .photos img { max-width: 100%; }
+  .nav-list { display: none; } /* mobile menu placeholder */
+  .site-header { padding: .5rem; }
+  .header { padding: 60px 1rem; font-size: 36px; -webkit-text-stroke: 3px rgb(2,43,4); }
+}
+@media screen and (max-width: 700px) {
+  .row, .navbar { flex-direction: column; }
+  .coaches { flex-direction: column; align-items: center; }
+  .coach-box { width: 80%; }
+  section.form-container { padding: 1rem; }
+  button { font-size: 0.9rem; }
+  /* optional: show nav as stacked list on very small screens */
+  .nav-list { display: flex; flex-direction: column; gap: .25rem; background: transparent; }
+  .nav-list li { margin: 0; }
+  .nav-link { padding: .6rem 1rem; display: block; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* utility */
+.hidden { display: none !important; }
+
+/* dark-mode styles for content panels and flexboxes */
+[data-theme="dark"] .side {
+  background: #0f1416;
+  color: var(--fg);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+[data-theme="dark"] .main {
+  background: transparent;
+  color: var(--fg);
+}
+
+[data-theme="dark"] .coach-box {
+  background: rgba(255,255,255,0.02);
+  border-color: rgba(255,255,255,0.06);
+  color: var(--fg);
+}
+
+[data-theme="dark"] .coach-box h3 {
+  color: var(--fg);
+}
+
+[data-theme="dark"] .coach-box p {
+  color: var(--muted);
+}
+
+[data-theme="dark"] .photos img,
+[data-theme="dark"] .coach-box img,
+[data-theme="dark"] .side img {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  filter: brightness(.92) contrast(.95);
+}
+
+/* dark mode of tables and tournament list */
+[data-theme="dark"] table,
+[data-theme="dark"] th,
+[data-theme="dark"] td {
+  background: transparent;
+  color: var(--fg);
+  border-color: rgba(255,255,255,0.06);
+}
+
+[data-theme="dark"] th {
+  background: rgba(255,255,255,0.03);
+}
+
+[data-theme="dark"] td {
+  background: rgba(255,255,255,0.01);
+}
+
+/* tournaments and side list items */
+[data-theme="dark"] .tournaments li,
+[data-theme="dark"] .side li {
+  background: rgba(255,255,255,0.03);
+  color: var(--fg);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+[data-theme="dark"] .tournaments li:hover,
+[data-theme="dark"] .side li:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+[data-theme="dark"] .tournaments {
+  background: #0f1416;             
+  color: var(--fg);                
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* dark form */
+[data-theme="dark"] section.form-container {
+  background: #0f1416;         
+  color: var(--fg);             
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* dark footer */
+[data-theme="dark"] .footer {
+  background: transparent;
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+/* dark theme for buttons and links inside panels */
+[data-theme="dark"] button,
+[data-theme="dark"] .nav-link {
+  color: var(--fg);
+}
+
+[data-theme="dark"] a {
+  color: var(--accent);
+}
+
+/* make sure focus outlines remain visible in dark mode */
+[data-theme="dark"] a:focus,
+[data-theme="dark"] button:focus,
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus {
+  outline: 3px solid rgba(108, 204, 255, 0.9);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px rgba(108, 204, 255, 0.08);
+}

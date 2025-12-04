@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    // invoked function to set theme based on localstorage
+    (function(){
+      try {
+        var saved = null;
+        try { saved = localStorage.getItem('siteTheme'); } catch(e) { saved = null; }
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {
+        try { document.documentElement.setAttribute('data-theme', 'dark'); } catch(e){}
+      }
+    })();
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruckus Tournament Schedule</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+  <section class="header hero" aria-hidden="true">
+    <h1>Vermont Ruckus</h1>
+  </section>
+
+  <!-- website header/navbar-->
+  <header class="site-header" role="banner">
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="roster.html">Roster</a></li>
+        <li><a class="nav-link" href="coaches.html">Coaches</a></li>
+        <li><a class="nav-link" href="tournaments.html" aria-current="page">Tournament Schedule</a></li>
+        <li><a class="nav-link" href="form.html">Interest Form</a></li>
+      </ul>
+    </nav>
+    <!-- theme toggle -->
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle light and dark theme">
+        <span id="themeIcon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <section class="tournaments" aria-labelledby="tournaments-heading">
+      <h2 id="tournaments-heading">Ruckus 2025–2026 Tournament Schedule</h2>
+      <ul>
+        <!-- tournament list-->
+        <li><strong>Lobster Pot</strong> — South Portland, Maine | Oct 18–19, 2025</li>
+        <li><strong>Blue Ridge</strong> — Martinsville, Virginia | Nov 8–9, 2025</li>
+        <li><strong>Queen City Tune Up</strong> — Rock Hill, South Carolina | Feb 13-14, 2026</li>
+        <li><strong>Standford Invite</strong> — Real, Palo Alto, California | Mar 7–8, 2026</li>
+        <li><strong>Northwest Challenge</strong> — Seattle, Washington | Mar 22–23, 2026</li>
+        <li><strong>Sectionals</strong> — TBD | Mid April, 2026</li>
+        <li><strong>Regionals</strong> — TBD | Early May, 2026</li>
+        <li><strong>Nationals</strong> — Rockford, Illinois | May 22–25, 2026</li>
+      </ul>
+    </section>
+  </main>
+  <!-- footer with contact info -->
+  <footer class="footer" role="contentinfo">
+    <p><strong>Vermont Ruckus</strong> | University of Vermont</p>
+    <p>
+      Follow us on
+      <a href="https://www.instagram.com/uvm_ruckus" target="_blank" rel="noopener noreferrer">Instagram</a>
+      •
+      <a href="mailto:womensultimate@uvm.edu">Email Us</a>
+    </p>
+    <p>&copy; 2025 Vermont Ruckus</p>
+  </footer>
+
+  <!-- Theme script must load before other scripts so the toggle is wired up -->
+  <script src="theme.js"></script>
+</body>
+</html>

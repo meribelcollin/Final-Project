@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    // invoked function to set theme based on localstorage
+    (function(){
+      try {
+        var saved = null;
+        try { saved = localStorage.getItem('siteTheme'); } catch(e) { saved = null; }
+        if (saved === 'dark' || saved === 'light') {
+          document.documentElement.setAttribute('data-theme', saved);
+        } else {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (e) {
+        try { document.documentElement.setAttribute('data-theme', 'dark'); } catch(e){}
+      }
+    })();
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UVM Ruckus Interest Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section class="header hero" aria-hidden="true">
+    <h1>Vermont Ruckus</h1>
+  </section>
+  <!-- website header/navbar-->
+  <header class="site-header" role="banner">
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="roster.html">Roster</a></li>
+        <li><a class="nav-link" href="coaches.html">Coaches</a></li>
+        <li><a class="nav-link" href="tournaments.html">Tournament Schedule</a></li>
+        <li><a class="nav-link" href="form.html" aria-current="page">Interest Form</a></li>
+      </ul>
+    </nav>
+    <!-- theme toggle -->
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle light and dark theme">
+        <span id="themeIcon">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="form-container" aria-labelledby="form-heading">
+      <h2 id="form-heading">UVM Ruckus Interest Form</h2>
+      <!-- form fields -->
+      <form id="uvmForm" novalidate>
+        <div>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div>
+          <label for="email">UVM Email</label>
+          <input type="email" id="email" name="email" placeholder="example@uvm.edu" required>
+        </div>
+
+        <div>
+          <label for="comments">Comments</label>
+          <textarea id="comments" name="comments" rows="4" required></textarea>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+      <!-- feedback message area -->
+      <div class="feedback" id="feedbackMsg" aria-live="polite"></div>
+    </section>
+  </main>
+  
+  <!-- footer with contact info -->
+  <footer class="footer" role="contentinfo">
+    <p><strong>Vermont Ruckus</strong> | University of Vermont</p>
+    <p>
+      Follow us on
+      <a href="https://www.instagram.com/uvm_ruckus" target="_blank" rel="noopener noreferrer">Instagram</a>
+      •
+      <a href="mailto:womensultimate@uvm.edu">Email Us</a>
+    </p>
+    <p>&copy; 2025 Vermont Ruckus</p>
+  </footer>
+
+  <!-- theme script -->
+  <script src="theme.js"></script>
+  <script src="script.js"></script>
+</body>
