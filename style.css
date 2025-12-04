@@ -280,7 +280,7 @@ a:focus, button:focus, input:focus, textarea:focus {
   .row { flex-direction: column-reverse; }
   .side { flex: 0 0 auto; width: 100%; }
   .photos img { max-width: 100%; }
-  .nav-list { display: none; } /* mobile menu placeholder */
+  .nav-list { display: none; }
   .site-header { padding: .5rem; }
   .header { padding: 60px 1rem; font-size: 36px; -webkit-text-stroke: 3px rgb(2,43,4); }
 }
@@ -290,10 +290,6 @@ a:focus, button:focus, input:focus, textarea:focus {
   .coach-box { width: 80%; }
   section.form-container { padding: 1rem; }
   button { font-size: 0.9rem; }
-  /* optional: show nav as stacked list on very small screens */
-  .nav-list { display: flex; flex-direction: column; gap: .25rem; background: transparent; }
-  .nav-list li { margin: 0; }
-  .nav-link { padding: .6rem 1rem; display: block; }
 }
 
 @media (prefers-reduced-motion: reduce) {
